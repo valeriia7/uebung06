@@ -5,6 +5,26 @@ class Liste<T> {
 		T value;
 		Element next;
 		Element(T value) { this.value = value; }
+		void insert(T value) {
+			if (next == null)
+				next = new Element(value);
+			else
+				next.insert(value);
+		}
+		boolean contains(T value) {
+			if (this.value.equals(value))
+				return true;
+			else if (next == null)
+				return false;
+			else
+				return next.contains(value);
+		}
+		public String toString() {
+			if (next == null)
+				return value.toString();
+			else
+				return value.toString() + ", " + next.toString();
+		}
 	}
 
 	private Element first;
@@ -29,7 +49,10 @@ class Liste<T> {
 	 * Wie `add`, aber rekursiv zu implementieren.
 	 */
 	void addRek(T value) {
-		throw new UnsupportedOperationException();
+		if (first == null)
+			first = new Element(value);
+		else
+			first.insert(value);
 	}
 
 	/**
@@ -53,7 +76,10 @@ class Liste<T> {
 	 * Wie `contains`, nur rekursiv zu implementieren.
 	 */
 	boolean containsRek(T value) {
-		throw new UnsupportedOperationException();
+		if (first == null)
+			return false;
+		else
+			return first.contains(value);
 	}
 
 	/**
@@ -64,7 +90,7 @@ class Liste<T> {
 			return "[]";
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(first.value);
+		sb.append("[").append(first.value);
 
 		Element it = first.next;
 		while (it != null) {
@@ -72,13 +98,16 @@ class Liste<T> {
 			it = it.next;
 		}
 
-		return sb.toString();
+		return sb.append("]").toString();
 	}
 
 	/**
 	 * Zusatzaufgabe: Wie `toString`, nur rekursiv zu implementieren.
 	 */
 	String toStringRek() {
-		throw new UnsupportedOperationException();
+		if (first == null)
+			return "[]";
+		else
+			return "[" + first + "]";
 	}
 }
