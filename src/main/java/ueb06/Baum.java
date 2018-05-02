@@ -22,7 +22,7 @@ class Baum<T extends Comparable<T>> {
 
 		Element it = root;
 		while (it != null) {
-			int c = it.value.compareTo(value);
+			int c = value.compareTo(it.value);
 
 			if (c == 0)
 				return;
@@ -60,7 +60,7 @@ class Baum<T extends Comparable<T>> {
 
 		Element it = root;
 		while (it != null) {
-			int c = it.value.compareTo(value);
+			int c = value.compareTo(it.value);
 			if (c == 0)
 				return true;
 			else if (c < 0)
