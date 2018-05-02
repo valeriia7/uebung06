@@ -1,7 +1,5 @@
 package ueb06;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 class Baum<T extends Comparable<T>> {
