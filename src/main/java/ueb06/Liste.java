@@ -64,7 +64,7 @@ class Liste<T> {
 			return "[]";
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(first.value);
+		sb.append("[").append(first.value);
 
 		Element it = first.next;
 		while (it != null) {
@@ -72,7 +72,7 @@ class Liste<T> {
 			it = it.next;
 		}
 
-		return sb.toString();
+		return sb.append("]").toString();
 	}
 
 	/**
