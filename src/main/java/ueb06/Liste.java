@@ -1,11 +1,36 @@
 package ueb06;
 
 class Liste<T> {
+
+
 	private class Element {
 		T value;
 		Element next;
-		Element(T value) { this.value = value; }
+		Element(T value) { this.value = value;
 	}
+    private void insert (T value){
+	    if(next ==null){
+	        next = new Element(value); // wenn wir an die letzte Stelle sind.
+        }
+        else {
+	        next.insert(value);
+        }
+
+    }
+    public boolean hilfcontain(T value){
+		    if(this.value == value){
+		        return true;
+            }
+            else if(next==null){
+		        return false;
+
+        }
+            else {
+		        return next.hilfcontain(value);
+            }
+		}
+    }
+
 
 	private Element first;
 
@@ -29,8 +54,17 @@ class Liste<T> {
 	 * Wie `add`, aber rekursiv zu implementieren.
 	 */
 	void addRek(T value) {
-		throw new UnsupportedOperationException();
+	    if(first==null){
+	        first = new Element(value);
+        }
+        else{
+	        first.insert(value);
+        }
+
+
+
 	}
+
 
 	/**
 	 * Gibt `true` zurück, wenn der Wert `value` in der Liste enthalten ist.
@@ -53,7 +87,12 @@ class Liste<T> {
 	 * Wie `contains`, nur rekursiv zu implementieren.
 	 */
 	boolean containsRek(T value) {
-		throw new UnsupportedOperationException();
+		if(first==null){
+		    return false;
+        }
+        else {
+		    return first.hilfcontain(value);
+        }
 	}
 
 	/**

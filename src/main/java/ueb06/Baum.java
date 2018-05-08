@@ -48,7 +48,7 @@ class Baum<T extends Comparable<T>> {
 	 *  Wie `add`, aber rekursiv zu implementieren.
 	 */
 	void addRek(T value) {
-		throw new UnsupportedOperationException();
+
 	}
 
 	/**
