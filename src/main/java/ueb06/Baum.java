@@ -48,6 +48,10 @@ class Baum<T extends Comparable<T>> {
 	 *  Wie `add`, aber rekursiv zu implementieren.
 	 */
 	void addRek(T value) {
+	    if (root==null){
+	        root = new Element(value);
+
+        }
 
 	}
 
